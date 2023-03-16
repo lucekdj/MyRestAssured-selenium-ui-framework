@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="MyRestAssured-selenium-ui-framework-fall-2022" />
+        <module name="TIM.RESTselenium-ui-framework-fall-2022" />
+        <module name="selenium-ui-framework" />
+        <module name="TIMselenium-ui-framework-fall-2022" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
