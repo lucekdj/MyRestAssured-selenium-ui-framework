@@ -11,7 +11,7 @@ public class RESTBase {
     public final String APIV = "/v2";
     public final String AUTH = "4a5df07f01f92a0b18a513fe4176f2e030c9bc4a6e4a18e43daea56172202843";
     RESTClient restClient = new RESTClient();
-    HwRESTPost hwRESTPost = new HwRESTPost();
+    HwPostREST hwPostREST = new HwPostREST();
 
 
     @BeforeEach

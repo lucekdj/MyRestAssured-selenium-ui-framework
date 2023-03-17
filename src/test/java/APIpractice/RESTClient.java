@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 
 public class RESTClient {
 
-    // Save post response to variable
+    // Save post response to variable (createUser)
     // We will need status code of response
     // We will need body of response
     public  Response createUser(String AUTH, String jsonBody) {
@@ -25,8 +25,8 @@ public class RESTClient {
                 .post("/users");
     }
 
-    // Save get response in variable
-    // We need it to make sure 100% that our user has been created and saved to DB
+    // Save get response in variable (getUserById)
+    // We need it to make sure 100% that our user has been created and saved to DataBase
     // We need status code
     // We need body of response
     public Response getUserById(String AUTH, String userId) {
@@ -38,10 +38,11 @@ public class RESTClient {
                 .accept(ContentType.JSON)
                 // Act
                 .when()
-                // responseCreateUser.jsonPath().getString("id") -> get id from post response
-                .pathParam("userId", userId)
-                // get user by id, userId is pathparam where we dynamically provide id of newly created user
-                .get("/users/{userId}");
+                // Provide id of user you want to get info
+                // responseCreateUser.jsonPath().getString("id") -> get id from post response new created user
+                .pathParam("userId", userId) //passing id new created user to retrieve his info
+                // get user info by id, userId is pathparam where we dynamically provide id of newly created user
+                .get("/users/{userId}"); // specifying path to get info of user
     }
 
     // Response interface is where we store our response results

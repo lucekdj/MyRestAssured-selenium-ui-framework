@@ -4,7 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class HwRESTPost {
+public class HwPostREST {
 
 
 
@@ -18,15 +18,15 @@ public class HwRESTPost {
                     .get("/post");
         }
 
-        public Response createPostByUsingUserId(String AUTH, String newCreatePostBody,String userId) {
+        public Response createPostByUsingUserId(String AUTH, String body, String userId) {
             return RestAssured
                     .given()
                     .contentType(ContentType.JSON)
-                    .headers("Authorization", "Bearer " + AUTH)
+                    .headers("Authorization","Bearer "+AUTH)
                     .accept(ContentType.JSON)
-                    .body(newCreatePostBody)
+                    .body(body)
                     .when()
-                    .pathParam("postId",userId)
+                    .pathParam("userId",userId)
                     .post("/users/{userId}/posts");
         }
 
@@ -38,9 +38,20 @@ public class HwRESTPost {
                     .accept(ContentType.JSON)
                     .when()
                     .pathParam("id", postId)
-                    .get("/postId/{id}");
+                    .get("/posts/{id}");
         }
 
+    public Response updatePostByUsingPostId(String AUTH, String body, String postId) {
+        return RestAssured
+                .given()
+                .contentType(ContentType.JSON)
+                .headers("Authorization", "Bearer " + AUTH)
+                .accept(ContentType.JSON)
+                .body(body)
+                .when()
+                .pathParam("id", postId)
+                .put("/posts/{id}");
+    }
         public Response deletePostUsingPostId(String AUTH, String postId) {
             return RestAssured
                     .given()
@@ -52,17 +63,7 @@ public class HwRESTPost {
                     .delete("/posts/{id}");
         }
 
-        public Response updatePostByUsingPostId(String AUTH, String body, String postId) {
-            return RestAssured
-                    .given()
-                    .contentType(ContentType.JSON)
-                    .headers("Authorization", "Bearer " + AUTH)
-                    .accept(ContentType.JSON)
-                    .body(body)
-                    .when()
-                    .pathParam("id", postId)
-                    .put("/posts/{id}");
-        }
+
     }
 
 

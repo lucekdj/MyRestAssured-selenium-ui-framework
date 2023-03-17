@@ -49,80 +49,81 @@ public class MyRESTtest {
 
         System.out.println(responseListUsers.asString());
         System.out.println(responseListUsers.getStatusCode());
+        System.out.println(responseListUsers.asPrettyString());  // _____________!!!!!!!!!!!!!!!!!!!!!
 
 
-        Response responseGetUserById = RestAssured
-                .given()
-                .contentType(ContentType.JSON)
-                .headers("Authorization", "Bearer " + auth)  //  "Bearer"  holderposiadacz
-                .accept(ContentType.JSON)
-                .when()
-                .pathParam("userId","1017858")
-                .get("/users/{userId}");
-        System.out.println(responseGetUserById.asString());
-        System.out.println(responseGetUserById.getStatusCode());
-
-
-        // Triple A
-        // Arrange -> given
-        // Act -> when
-        // Assert -> then
-
-        String body  = "{\n" +
-                "    \"name\": \"" + nameFaker + "\",\n" +
-                "    \"email\": \"" + emailFaker + "\",\n" +
-//                "    \"name\": \"123RESTLoloPolo123\",\n" +
-//                "    \"email\": \"123RESTLoloPolo123@gmail.com\",\n" +
-                "    \"gender\": \"male\",\n" +
-                "    \"status\": \"active\"\n" +
-                "}";
-
-        Response responseCreateUser = RestAssured
-                .given()
-                .contentType(ContentType.JSON)
-                .headers("Authorization", "Bearer " + auth)
-                .accept(ContentType.JSON)
-                .body(body)
-                .when()
-                .post("/users");
-
-        System.out.println(responseCreateUser.asString());
-        System.out.println(responseCreateUser.getStatusCode());
-
-
-        String bodyUpdate  = "{\n" +
-                "    \"name\": \"1UpdatedRESTLoloPolo123\",\n" +
-                "    \"email\": \"1UpdatedRESTLoloPolo123@gmail.com\",\n" +
-                "    \"gender\": \"male\",\n" +
-                "    \"status\": \"inactive\"\n" +
-                "}";
-
-        Response responseUpdateUserBYid = RestAssured
-                .given()
-                .contentType(ContentType.JSON)
-                .headers("Authorization", "Bearer " + auth)
-                .accept(ContentType.JSON)
-                .body(bodyUpdate)
-                .when()
-                .pathParam("userId","1017858")
-                .put("/users/{userId}");
-                //.patch("/users/{userId}");
-        System.out.println(responseUpdateUserBYid.asString());
-        System.out.println(responseUpdateUserBYid.getStatusCode());
-
-
-
-        Response responseDeleteUser = RestAssured
-                .given()
-                .contentType(ContentType.JSON)
-                .headers("Authorization", "Bearer " + auth)
-                .accept(ContentType.JSON)
-                .when()
-                .pathParam("userId","1017858")
-                .delete("/users/{userId}");
-        //.patch("/users/{userId}");
-        System.out.println(responseDeleteUser.asString());
-        System.out.println(responseDeleteUser.getStatusCode());
+//        Response responseGetUserById = RestAssured
+//                .given()
+//                .contentType(ContentType.JSON)
+//                .headers("Authorization", "Bearer " + auth)  //  "Bearer"  holderposiadacz
+//                .accept(ContentType.JSON)
+//                .when()
+//                .pathParam("userId","1017858")
+//                .get("/users/{userId}");
+//        System.out.println(responseGetUserById.asString());
+//        System.out.println(responseGetUserById.getStatusCode());
+//
+//
+//        // Triple A
+//        // Arrange -> given
+//        // Act -> when
+//        // Assert -> then
+//
+//        String body  = "{\n" +
+//                "    \"name\": \"" + nameFaker + "\",\n" +
+//                "    \"email\": \"" + emailFaker + "\",\n" +
+////                "    \"name\": \"123RESTLoloPolo123\",\n" +
+////                "    \"email\": \"123RESTLoloPolo123@gmail.com\",\n" +
+//                "    \"gender\": \"male\",\n" +
+//                "    \"status\": \"active\"\n" +
+//                "}";
+//
+//        Response responseCreateUser = RestAssured
+//                .given()
+//                .contentType(ContentType.JSON)
+//                .headers("Authorization", "Bearer " + auth)
+//                .accept(ContentType.JSON)
+//                .body(body)
+//                .when()
+//                .post("/users");
+//
+//        System.out.println(responseCreateUser.asString());
+//        System.out.println(responseCreateUser.getStatusCode());
+//
+//
+//        String bodyUpdate  = "{\n" +
+//                "    \"name\": \"1UpdatedRESTLoloPolo123\",\n" +
+//                "    \"email\": \"1UpdatedRESTLoloPolo123@gmail.com\",\n" +
+//                "    \"gender\": \"male\",\n" +
+//                "    \"status\": \"inactive\"\n" +
+//                "}";
+//
+//        Response responseUpdateUserBYid = RestAssured
+//                .given()
+//                .contentType(ContentType.JSON)
+//                .headers("Authorization", "Bearer " + auth)
+//                .accept(ContentType.JSON)
+//                .body(bodyUpdate)
+//                .when()
+//                .pathParam("userId","1017858")
+//                .put("/users/{userId}");
+//                //.patch("/users/{userId}");
+//        System.out.println(responseUpdateUserBYid.asString());
+//        System.out.println(responseUpdateUserBYid.getStatusCode());
+//
+//
+//
+//        Response responseDeleteUser = RestAssured
+//                .given()
+//                .contentType(ContentType.JSON)
+//                .headers("Authorization", "Bearer " + auth)
+//                .accept(ContentType.JSON)
+//                .when()
+//                .pathParam("userId","1017858")
+//                .delete("/users/{userId}");
+//        //.patch("/users/{userId}");
+//        System.out.println(responseDeleteUser.asString());
+//        System.out.println(responseDeleteUser.getStatusCode());
     }
 
 }
